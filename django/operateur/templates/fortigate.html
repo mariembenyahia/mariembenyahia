@@ -1,0 +1,188 @@
+{% load static %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="{% static 'css/stylee.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styyyle.css' %}">
+</head>
+
+<body>
+  <input type='checkbox' id='nav-toggle'>
+  <div class="sidebar">
+      <div class="sidebar-brand">
+          <h1>
+              <span class="lab la-accusoft"></span> 
+              <span>   </span>
+              <!-- <span>Accusoft</span> -->
+          </h1>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/dashboard/" ><i class="fas fa-tachometer-alt"></i><span>  Dashboard</span></a>
+        
+            </li>
+
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/fortigate/" class="active"><i class="fas fa-shield-alt"></i><span>  Fortigate</span></a>
+        
+            </li>
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/routestatic/"><i class="fas fa-network-wired"></i><span>  static routes</span></a>
+        
+            </li>
+
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/sdwan/"><i class="fas fa-project-diagram"></i><span>  SD-WAN </span></a>
+        
+            </li>            
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/firewall/"><i class="fas fa-shield-alt"></i><span>  Firewall Policy </span></a>
+        
+            </li> 
+
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/profil/" ><i class="fas fa-user"></i><span>  Profil</span></a><i class="fa-solid fa-gears"></i>
+        </li>
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/login/"><i class="fas fa-sign-out-alt"></i><span>  Logout</span></a>
+        </li>
+        </ul>
+        
+      </div>
+  </div>
+
+  <div class="main-content">
+      <header>
+          <h2>
+              <label for="nav-toggle">
+                  <span class="las la-bars"></span>
+              </label>
+              Dashboard
+          </h2>
+          <div class="search-wrapper">
+              <span class="las la-search"></span>
+              <input type="search" placeholder="search here" />
+          </div>
+          <div class="user-wrapper">
+            <img src="../../static/images/mariem.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>Mariem Ben Yahia</h4>
+                <small>Super admin</small>
+            </div>
+          </div>
+      </header>
+
+      <main>
+          
+          <div class="recent-grid">
+              <div class="project">
+                  <div class="card">
+                      <div class="card-header">
+                          <h3> Fortigate Policy</h3>
+                          <button id="add-new-btn">
+                              add new <span class="las la-arrow-right"></span>
+                          </button>
+                      </div>
+                      
+<table id="fortigate-table">
+    <thead>
+        <tr>
+            <th>IP</th>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>192.168.200.1</td>
+            <td>Fortinet14</td>
+            <td>Le site n° 1</td>
+            <td>
+                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>192.168.100.1</td>
+            <td>Fortinet12</td>
+            <td>Le site n° 2</td>
+            <td>
+                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>192.168.3.1</td>
+            <td>Fortinet13</td>
+            <td>Le site n° 3</td>
+            <td>
+                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>192.168.50.1</td>
+            <td>Fortinet15</td>
+            <td>HA de fortinet14</td>
+            <td>
+                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+                      <div class="card-body">
+                          <div class="table-responsive">
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </main>
+  </div>
+ 
+    
+</body>
+<script>
+    document.getElementById('add-new-btn').addEventListener('click', function() {
+        var table = document.getElementById('fortigate-table').getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cols = 3; // Nombre de colonnes
+
+        for (var i = 0; i < cols; i++) {
+            var cell = newRow.insertCell(i);
+            cell.innerHTML = '<input type="text">';
+        }
+
+        var actionCell = newRow.insertCell(cols);
+        actionCell.innerHTML = 
+                                ' <div class="card-header"><button id="add-new-btn">Validate <span class="las la-arrow-right"></span></button></div>';
+
+        // Afficher le bouton Validate
+        document.getElementById('validate-btn').style.display = 'inline-block';
+    });
+
+    // Cacher le bouton Validate initialement
+    document.getElementById('validate-btn').style.display = 'none';
+
+</script>
+</html>

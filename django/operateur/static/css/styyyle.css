@@ -1,0 +1,92 @@
+
+
+/* Style pour le tableau */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid #2c3e50;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ecf0f1;
+    margin-bottom: 20px;
+}
+
+/* Style pour les en-têtes de tableau */
+th {
+    background-color: #212f5c;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+/* Style pour les cellules de tableau */
+td {
+    border-bottom: 1px solid #bdc3c7;
+    padding: 10px 15px;
+}
+
+/* Style pour les lignes alternées */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style pour les liens dans les cellules */
+td a {
+    color: #212f5c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style pour les liens survolés */
+td a:hover {
+    text-decoration: underline;
+}
+
+
+
+.delete-btn {
+    background-color: #f3f3f3; /* Couleur de fond rouge */
+    color: rgb(182, 52, 52); /* Couleur du texte en blanc */
+    border: rgb(182, 52, 52); /* Pas de bordure */
+    padding: 5px 10px; /* Espacement intérieur */
+    border-radius: 3px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de souris en pointeur */
+}
+
+/* Hover pour le bouton de suppression */
+.delete-btn:hover {
+    background-color: #dbbdbd; /* Couleur de fond rouge plus foncée au survol */
+}
+
+.edit-btn {
+    background-color: #f3f3f3; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+    border: rgb(182, 52, 52); /* Pas de bordure */
+    padding: 5px 10px; /* Espacement intérieur */
+    border-radius: 3px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de souris en pointeur */
+}
+
+/* Hover pour le bouton "edit" */
+.edit-btn:hover {
+    background-color: #ddd; /* Couleur de fond plus claire au survol */
+
+}
+.save-btn {
+    background-color: #f3f3f3; /* Couleur de fond */
+    color: #3f993f; /* Couleur du texte */
+    border: rgb(182, 52, 52); /* Pas de bordure */
+    padding: 5px 10px; /* Espacement intérieur */
+    border-radius: 3px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de souris en pointeur */
+}
+
+/* Hover pour le bouton "edit" */
+.save-btn:hover {
+    background-color: #ddd; /* Couleur de fond plus claire au survol */
+
+}
+

@@ -1,0 +1,170 @@
+
+
+
+{% load static %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="{% static 'css/stylee.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styyyle.css' %}">
+</head>
+
+<body>
+  <input type='checkbox' id='nav-toggle'>
+  <div class="sidebar">
+      <div class="sidebar-brand">
+          <h1>
+              <span class="lab la-accusoft"></span> 
+              <span>   </span>
+              <!-- <span>Accusoft</span> -->
+          </h1>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/dashboard/" ><i class="fas fa-tachometer-alt"></i><span>  Dashboard</span></a>
+        
+            </li>
+
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/fortigate/" ><i class="fas fa-shield-alt"></i><span>  Fortigate</span></a>
+        
+            </li>
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/routestatic/"><i class="fas fa-network-wired"></i><span>  static routes</span></a>
+        
+            </li>
+
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/sdwan/"><i class="fas fa-project-diagram"></i></i><span>  SD-WAN </span></a>
+        
+            </li>            
+
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/firewall/" class="active"><i class="fas fa-shield-alt"></i><span>  Firewall Policy </span></a>
+        
+            </li> 
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/profil/" ><i class="fas fa-user"></i><span>  Profil</span></a><i class="fa-solid fa-gears"></i>
+        </li>
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/login/"><i class="fas fa-sign-out-alt"></i><span>  Logout</span></a>
+        </li>
+        </ul>
+        
+      </div>
+  </div>
+
+  <div class="main-content">
+      <header>
+          <h2>
+              <label for="nav-toggle">
+                  <span class="las la-bars"></span>
+              </label>
+              Dashboard
+          </h2>
+          <div class="search-wrapper">
+              <span class="las la-search"></span>
+              <input type="search" placeholder="search here" />
+          </div>
+          <div class="user-wrapper">
+            <img src="../../static/images/mariem.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>Mariem Ben Yahia</h4>
+                <small>Super admin</small>
+            </div>
+          </div>
+      </header>
+
+      <main>
+          
+          <div class="recent-grid">
+              <div class="project">
+                  <div class="card">
+                      <div class="card-header">
+                          <h3>Firewall Policy   </h3>
+                          <div style="padding-right:60%">
+                            <select><option   value="option1">fortinet12</option><option value="option2">fortinet13</option><option value="option3">fortinet14</option></select>
+                           </div>
+                          <button id="add-new-btn">
+                              add new <span class="las la-arrow-right"></span>
+                          </button>
+                      </div>
+                      
+<table id="fortigate-table">
+    <tbody>
+        <tr>
+            <tr>
+                <th>NAME</th>
+                <th>SOURCE</th>
+                <th>DESTINATION</th>
+                <th>FORTINET</th>
+                <th>ACTION</th>
+
+            </tr>
+
+            <tr>
+                <td>allow sd-wan acces internet</td>
+                <td>all</td>
+                <td>all</td>
+                <td>fortinet12</td>
+                <td>
+                    <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            
+        </tr>
+    </tbody>
+</table>
+
+                      <div class="card-body">
+                          <div class="table-responsive">
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </main>
+  </div>
+ 
+    
+</body>
+<script>
+    document.getElementById('add-new-btn').addEventListener('click', function() {
+        var table = document.getElementById('fortigate-table').getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cols = 4; // Nombre de colonnes
+
+        var cell1 = newRow.insertCell(0);
+        cell1.innerHTML = '<input type="text" >';
+
+        var cell2 = newRow.insertCell(1);
+        cell2.innerHTML = '<select><option value="option1">LAN(port2)</option><option value="option2">LAN1(port1)</option><option value="option3">WAN(port4)</option><option value="option4">WAN(port5)</option><option value="option5">WAN2(port7)</option><option value="option3">all</option></select>';
+
+
+        var cell3 = newRow.insertCell(2);
+        cell3.innerHTML = '<select><option value="option1">LAN(port2)</option><option value="option2">LAN1(port1)</option><option value="option3">WAN(port4)</option><option value="option4">WAN(port5)</option><option value="option5">WAN2(port7)</option><option value="option3">all</option></select>';
+
+        var cell4 = newRow.insertCell(3);
+        cell4.innerHTML = '<select><option value="option1">fortinet12</option><option value="option2">fortinet13</option><option value="option3">fortinet14</option></select>';
+        
+        var cell5 = newRow.insertCell(4);
+        cell5.innerHTML = ' <div class="card-header"><button id="add-new-btn">Validate <span class="las la-arrow-right"></span></button></div> ';
+        
+    });
+
+    // Vous pouvez ajouter ici des écouteurs d'événements pour les boutons d'édition et de suppression si nécessaire
+</script>
+</html>
+

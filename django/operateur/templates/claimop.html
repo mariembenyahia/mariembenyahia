@@ -1,0 +1,148 @@
+{% load static %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="{% static 'css/stylee.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styyyle.css' %}">
+</head>
+
+<body>
+  <input type='checkbox' id='nav-toggle'>
+  <div class="sidebar">
+      <div class="sidebar-brand">
+          <h1>
+              <span class="lab la-accusoft"></span> 
+              <span>   </span>
+              <!-- <span>Accusoft</span> -->
+          </h1>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/dashboardop/" ><i class="fas fa-tachometer-alt"></i><span>  Dashboard</span></a>
+        
+            </li>
+        
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/Customers/" ><i class="fas fa-users"></i><span>  Customers</span></a>
+        </li>
+        
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/claimop/" class="active"><i class="fas fa-clipboard-list"></i><span> claim</span></a>
+        </li>
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/profilop/" ><i class="fas fa-user"></i><span>  Profil</span></a><i class="fa-solid fa-gears"></i>
+        </li>
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/loginoperateur/"><i class="fas fa-sign-out-alt"></i><span>  Logout</span></a>
+        </li>
+        </ul>
+        
+      </div>
+  </div>
+
+  <div class="main-content">
+      <header>
+          <h2>
+              <label for="nav-toggle">
+                  <span class="las la-bars"></span>
+              </label>
+              Dashboard
+          </h2>
+          <div class="search-wrapper">
+              <span class="las la-search"></span>
+              <input type="search" placeholder="search here" />
+          </div>
+          <div class="user-wrapper">
+            <img src="../../static/images/mariem.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>Mariem Ben Yahia</h4>
+                <small>Super admin</small>
+            </div>
+          </div>
+      </header>
+
+      <main>
+          
+          <div class="recent-grid">
+              <div class="project">
+                  <div class="card">
+                      <div class="card-header">
+                          <h3> Claims !</h3>
+                          <button>
+                              See all <span class="las la-arrow-right"></span>
+                          </button>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Claims</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in users %}
+                                    <tr>
+                                        <td>{{ user.user }}</td>
+                                        <td>{{ user.x }}</td>
+                                        
+                                        <td><a class="green-btn" href=""><i class="fas fa-search search-icon"></i></a></td>
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div>
+              <div class="customers">
+                <div class="card">
+                    <div class="card-header" align="center">
+                      <div>
+                          
+                          <span><i class="fas fa-clipboard-list"></i>Total claims</span>
+                          <h1><p> </p></h1>
+                          <h1>{{ numclaimstotal }}</h1>
+                      </div>                       
+                    </div>
+            </div>
+          </div>
+      </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const userId = this.getAttribute('data-id');
+                if (confirm('Are you sure you want to delete this user ?')) {
+                    fetch(`/delete-user/${userId}`, {
+                        method: 'DELETE',
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            location.reload(); // Recharger la page après la suppression
+                        } else {
+                            alert('Erreur lors de la suppression de l\'utilisateur.');
+                        }
+                    });
+                }
+            });
+        });
+    })
+    </script>
+    
+</body>
+
+</html>

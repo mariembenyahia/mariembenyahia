@@ -1,0 +1,120 @@
+{% load static %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/stylee.css' %}">
+  <link rel="stylesheet" href="{% static 'css/sty.css' %}">
+</head>
+
+<body>
+  <input type='checkbox' id='nav-toggle'>
+  <div class="sidebar">
+      <div class="sidebar-brand">
+          <h1>
+              <span class="lab la-accusoft"></span> 
+              <span>   </span>
+              <!-- <span>Accusoft</span> -->
+          </h1>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a href="http://127.0.0.1:8000/operateur/dashboard/" ><i class="fas fa-tachometer-alt"></i><span>  Dashboard</span></a>
+        
+            </li>
+        
+
+        
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/claim/" class="active"><i class="fas fa-clipboard-list"></i><span> claim</span></a>
+        </li>
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/profil/" ><i class="fas fa-user"></i><span>  Profil</span></a><i class="fa-solid fa-gears"></i>
+        </li>
+
+        <li>
+            <a href="http://127.0.0.1:8000/operateur/login/"><i class="fas fa-sign-out-alt"></i><span>  Logout</span></a>
+        </li>
+        </ul>
+        
+      </div>
+  </div>
+
+  <div class="main-content">
+      <header>
+          <h2>
+              <label for="nav-toggle">
+                  <span class="las la-bars"></span>
+              </label>
+              Dashboard
+          </h2>
+          <div class="search-wrapper">
+              <span class="las la-search"></span>
+              <input type="search" placeholder="search here" />
+          </div>
+          <div class="user-wrapper">
+            <img src="../../static/images/mariem.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>Mariem Ben Yahia</h4>
+                <small>Super admin</small>
+            </div>
+          </div>
+      </header>
+
+      <main>
+          
+          <div class="recent-grid">
+            <div class="project">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Claiming</h3>
+                        <button>
+                            See all <span class="las la-arrow-right"></span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                          <form method="post">
+                            {% csrf_token %}
+                            <label for="claim">Enter your claim:</label><br>
+                            <textarea id="claim" name="claim" rows="4" cols="50"></textarea><br>
+                              <button type="submit">Send</button>
+                          </form>
+                        </div>
+                    </div>
+               
+                </div>
+                <div class="project">
+                  <div class="card">
+                    <div class="card-header">
+                        
+                    </div>
+                
+                    
+                </div>
+                
+              </div>
+              <div class="project">
+                <div class="card">
+                  <div class="card-header">
+                      <h3>Discussion</h3>
+                      
+                  </div>
+                
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type a message...">
+                        <button>Send</button>
+                    </div>
+                    
+                </div>
+          </div>
+      </main>
+  </div>
+</body>
+
+</html>

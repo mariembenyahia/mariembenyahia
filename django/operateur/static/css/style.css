@@ -1,0 +1,195 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(../images/cc.jpg);
+  background-size: auto;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+.login-link{
+  color:rgba(17, 13, 13, 0.712);;
+  
+}
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgb(85, 88, 253);
+  backdrop-filter: blur(10px); 
+  background-color: rgba(255, 255, 255, 0.5); 
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.795);
+  color: rgba(17, 13, 13, 0.712);
+  cursor: pointer;
+}
+
+
+button:hover {
+  background-color: rgb(85, 88, 253);
+  color: #c9c3ca;
+}
+
+#rememberMe {
+  /* Checkbox styles */
+  display: none; /* Hide the actual checkbox */
+}
+
+label[for="rememberMe"] {
+  /* Label styles */
+  position: relative;
+  padding-left: 25px; /* Create space for the pseudo-element */
+  cursor: pointer; /* Indicate clickable behavior */
+}
+
+label[for="rememberMe"]:before {
+  /* Pseudo-element that mimics the checkbox */
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc; /* Customize border style */
+  background-color: #fff; /* Customize background color */
+  margin-right: 10px; /* Adjust spacing between checkbox and label text */
+  position: absolute;
+  left: 0; /* Position at the left of the label */
+  top: 50%; /* Vertical centering */
+  transform: translateY(-50%); /* More precise vertical centering */
+}
+
+label[for="rememberMe"]:checked:before {
+  /* Style the pseudo-element when checkbox is checked */
+  background-color: #eff3f7; /* Customize checked background color */
+  /* Add a checkmark using a pseudo-element within the checkbox */
+  content: "\2713"; /* Checkmark character (Unicode) */
+  font-size: 12px; /* Adjust checkmark size */
+  color: rgba(17, 13, 13, 0.712); /* Customize checkmark color */
+  text-align: center; /* Center the checkmark */
+  line-height: 15px; /* Vertical centering */
+}
+
+
+
+
+.login-container {
+  width: 300px; /* Adjust width as needed */
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgb(85, 88, 253); /* Adjust shadow for better visibility */
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency for better readability */
+
+}
+
+/* Login Container Title Styling */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgba(17, 13, 13, 0.712);
+}
+
+/* Input Container Styling */
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+  color: rgba(17, 13, 13, 0.712);
+}
+
+/* Input Field Styling */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style the container for the date of birth (control-group) */
+.control-group {
+  margin-bottom: 15px; /* Add space between date of birth sections */
+}
+
+/* Style the label for the date of birth (control-label) */
+.control-label {
+  display: block; /* Make the label display on a new line */
+  margin-bottom: 5px; /* Add space between label and select elements */
+  font-weight: bold; /* Make the label text bold for emphasis */
+}
+
+/* Style the container for the select elements (controls) */
+.controls {
+  display: flex; /* Arrange the select elements horizontally */
+}
+
+/* Style the select elements (select) */
+select {
+  flex: 1 1 auto; /* Make each select element equally sized and flexible */
+  padding: 5px 10px; /* Add padding for better readability */
+  border: 1px solid #ccc; /* Add a thin border */
+  border-radius: 3px; /* Round the corners of the select elements */
+  font-size: 16px; /* Set the font size for readability */
+  margin-right: 10px; /* Add space between select elements (except the last one) */
+  color: rgba(17, 13, 13, 0.712);
+}
+
+/* Style the last select element (no margin to the right) */
+select:last-child {
+  margin-right: 0;
+}
+
+
+
+
+/* Style pour le bouton de suppression */
+.delete-btn {
+  background-color: white; /* Couleur de fond blanc */
+  border: none; /* Pas de bordure */
+  padding: 5px 10px; /* Espacement intérieur */
+  border-radius: 3px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de souris en pointeur */
+}
+
+/* Hover pour le bouton de suppression */
+.delete-btn:hover {
+  background-color: #f9f9f9; /* Couleur de fond légèrement plus claire au survol */
+}
+
+/* Style pour l'icône de poubelle */
+.delete-btn i {
+  color: white; /* Couleur de l'icône en blanc */
+  margin-right: 5px; /* Marge à droite de l'icône pour l'espacement */
+}
